@@ -1,0 +1,22 @@
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn as sns
+
+df = pd.read_excel('./기온강수 201707-202002.xlsx')
+df1 = pd.read_excel('./파이썬/17-20.xlsx')
+
+df2 = pd.merge(df, df1, how='outer')
+
+df3 = df2.set_index(['year'])
+
+heatmap_data = df3
+
+from matplotlib import font_manager, rc
+font_path = "C:/Windows/Fonts/NGULIM.TTF"
+font = font_manager.FontProperties(fname=font_path).get_name()
+rc('font', family=font)
+
+colormap = plt.cm.PuBu 
+plt.figure(figsize=(20, 20)) 
+plt.title("Person Correlation of Features", y = 1.05, size = 15) 
+sns.heatmap(heatmap_data.astype(float).corr(), linewidths = 0.1, vmax = 1.0, square = True, cmap = colormap, linecolor = "white", annot = True, annot_kws = {"size" : 16})

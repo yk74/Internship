@@ -1,0 +1,16 @@
+import pandas as pd
+import os
+
+## 물가 데이터 모두 불러오기 ##
+path = './파이썬/'
+file_list = os.listdir(path)
+file_list_py = [file for file in file_list if "2018" in file]
+
+## 데이터 병합 ##
+df = pd.DataFrame()
+for i in file_list_py:
+    data = pd.read_csv(path + i)
+    df = pd.concat([df,data],axis=1)
+
+## 파일 저장 ##
+df.to_csv('./파이썬/2018최종.csv', index = None, encoding='utf-8-sig')

@@ -1,0 +1,6 @@
+import folium
+
+## 용인시 좌표 설정 ##
+m = folium.Map(location = [37.2410864,127.1775537],
+              zoom_start=12)
+m

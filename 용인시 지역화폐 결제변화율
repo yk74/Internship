@@ -12,6 +12,13 @@ df_3 = df[df['시군구명']=='용인시 처인구']
 # df_2['행정동명'].unique()
 # df_3['행정동명'].unique()
 
+import matplotlib.pyplot as plt 
+from matplotlib import font_manager, rc
+font_path = "C:/Windows/Fonts/NGULIM.TTF"
+font = font_manager.FontProperties(fname=font_path).get_name()
+rc('font', family=font)
+
+## '용인시 기흥구' 시각화 ##
 df1 = df_1[df_1['행정동명']=='구갈동']
 df2 = df_1[df_1['행정동명']=='구성동']
 df3 = df_1[df_1['행정동명']=='기흥동']
@@ -48,6 +55,66 @@ plt.plot(df15['일반결제년월'],df15['결제변화비율'], label='영덕1�
 plt.plot(df16['일반결제년월'],df16['결제변화비율'], label='영덕2동')
 
 plt.title('2019 - 2020 용인시 기흥구 전월 대비 지역화폐 결제비율')
+plt.legend(loc=1)
+plt.grid()
+plt.show()
+
+## '용인시 수지구' 시각화 ##
+df1 = df_2[df_2['행정동명']=='구미1동']
+df2 = df_2[df_2['행정동명']=='동천동']
+df3 = df_2[df_2['행정동명']=='상현1동']
+df4 = df_2[df_2['행정동명']=='상현2동']
+df5 = df_2[df_2['행정동명']=='성복동']
+df6 = df_2[df_2['행정동명']=='신봉동']
+df7 = df_2[df_2['행정동명']=='죽전1동']
+df8 = df_2[df_2['행정동명']=='죽전2동']
+df9 = df_2[df_2['행정동명']=='풍덕천1동']
+df10 = df_2[df_2['행정동명']=='풍덕천2동']
+
+plt.figure(figsize=(12,5))
+plt.plot(df1['일반결제년월'],df1['결제변화비율'], label='구미1동')
+plt.plot(df2['일반결제년월'],df2['결제변화비율'], label='동천동')
+plt.plot(df3['일반결제년월'],df3['결제변화비율'], label='상현1동')
+plt.plot(df4['일반결제년월'],df4['결제변화비율'], label='상현2동')
+plt.plot(df5['일반결제년월'],df5['결제변화비율'], label='성복동')
+plt.plot(df6['일반결제년월'],df6['결제변화비율'], label='신봉동')
+plt.plot(df7['일반결제년월'],df7['결제변화비율'], label='죽전1동')
+plt.plot(df8['일반결제년월'],df8['결제변화비율'], label='죽전1동')
+plt.plot(df9['일반결제년월'],df9['결제변화비율'], label='풍덕천2동')
+plt.plot(df10['일반결제년월'],df10['결제변화비율'], label='풍덕천2동')
+
+plt.title('2019.10 - 2020.03 용인시 수지구 전월 대비 지역화폐 결제비율')
+plt.legend(loc=1)
+plt.grid()
+plt.show()
+
+## '용인시 처인구' 시각화 ##
+df1 = df_3[df_3['행정동명']=='남사면']
+df2 = df_3[df_3['행정동명']=='동부동']
+df3 = df_3[df_3['행정동명']=='모현읍']
+df4 = df_3[df_3['행정동명']=='백암면']
+df5 = df_3[df_3['행정동명']=='양지면']
+df6 = df_3[df_3['행정동명']=='역삼동']
+df7 = df_3[df_3['행정동명']=='원삼면']
+df8 = df_3[df_3['행정동명']=='유림동']
+df9 = df_3[df_3['행정동명']=='이동읍']
+df10 = df_3[df_3['행정동명']=='중앙동']
+df11 = df_3[df_3['행정동명']=='포곡읍']
+
+plt.figure(figsize=(12,5))
+plt.plot(df1['일반결제년월'],df1['결제변화비율'], label='남사면')
+plt.plot(df2['일반결제년월'],df2['결제변화비율'], label='동부동')
+plt.plot(df3['일반결제년월'],df3['결제변화비율'], label='모현읍')
+plt.plot(df4['일반결제년월'],df4['결제변화비율'], label='백암면')
+plt.plot(df5['일반결제년월'],df5['결제변화비율'], label='양지면')
+plt.plot(df6['일반결제년월'],df6['결제변화비율'], label='역삼동')
+plt.plot(df7['일반결제년월'],df7['결제변화비율'], label='원삼면')
+plt.plot(df8['일반결제년월'],df8['결제변화비율'], label='유림동')
+plt.plot(df9['일반결제년월'],df9['결제변화비율'], label='이동읍')
+plt.plot(df10['일반결제년월'],df10['결제변화비율'], label='중앙동')
+plt.plot(df11['일반결제년월'],df11['결제변화비율'], label='포곡읍')
+
+plt.title('2019.10 - 2020.03 용인시 처인구 전월 대비 지역화폐 결제비율')
 plt.legend(loc=1)
 plt.grid()
 plt.show()

@@ -1,0 +1,32 @@
+import pandas as pd
+
+df = pd.read_excel('./data/지역화폐가맹점4분기데이터.xlsx')
+
+df.columns
+df['시군명'].unique()
+
+df1 = df[df['시군명']=='용인시']
+df2 = df1[['상호명','업종명(종목명)','위도','경도']]
+df2.info()
+
+df3 = df2.dropna()
+df3.info()
+
+#!pip install folium
+import folium
+# from folium.plugins import MarkerCluster
+from folium.plugins import MiniMap
+
+## 지도 생성 ##
+m = folium.Map(location = [37.2410864,127.1775537],
+               zoom_start=12)
+# marker_cluster = MarkerCluster().add_to(m)
+
+## 마커 추가 ##
+for lat, long, name in zip(df3['위도'], df3['경도'], df3['상호명']):
+    folium.Marker([lat, long], tooltip=name).add_to(m)
+m
+
+## 미니맵 추가 ##
+minimap = MiniMap() 
+m.add_child(minimap)

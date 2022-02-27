@@ -54,7 +54,7 @@ plt.plot(df14['일반결제년월'],df14['결제변화비율'], label='신갈동
 plt.plot(df15['일반결제년월'],df15['결제변화비율'], label='영덕1동')
 plt.plot(df16['일반결제년월'],df16['결제변화비율'], label='영덕2동')
 
-plt.title('2019 - 2020 용인시 기흥구 전월 대비 지역화폐 결제비율')
+plt.title('2019 - 2020 용인시 기흥구 전월 대비 지역화폐 결제율')
 plt.legend(loc=1)
 plt.grid()
 plt.show()
